@@ -8,11 +8,49 @@ AI-powered healthcare consultation platform for Advance Care Planning (ACP).
 
 🤖 Built with OpenAI API, LangChain, ChromaDB and Retrieval-Augmented Generation (RAG)
 
+## System Architecture
+
+The ACP AI Consultation Platform adopts a Retrieval-Augmented Generation (RAG) architecture integrating healthcare knowledge retrieval, large language models, response evaluation, and user feedback mechanisms.
+
+![architecture](/acp_system_architecture.png)
+
+
+## Key AI Components
+
+### Retrieval-Augmented Generation (RAG)
+
+The platform retrieves ACP-related knowledge from a ChromaDB vector database using LangChain before sending contextual information to OpenAI GPT.
+
+### Response Evaluation
+
+Generated responses are evaluated through:
+
+- Relevance Evaluation
+- Toxicity Evaluation
+- User Rating Feedback
+
+Evaluation results are stored for future analysis and model improvement.
+
+### Interaction Record Database
+
+All user interactions, generated responses, and evaluation results are stored to support system monitoring and research purposes.
+
 ## Overview
 
-ACP AI Consultation Platform is a healthcare-focused conversational AI system designed to support Advance Care Planning (ACP) education and consultation.
+ACP AI Consultation Platform is a Retrieval-Augmented Generation (RAG) based healthcare consultation system designed to support Advance Care Planning (ACP) education and information access.
 
-The platform integrates Large Language Models (LLMs), Retrieval-Augmented Generation (RAG), healthcare knowledge retrieval, response evaluation, and user feedback mechanisms to improve healthcare information accessibility and user engagement.
+The system combines:
+
+- Flask web application
+- LangChain retrieval pipeline
+- ChromaDB vector database
+- OpenAI GPT models
+- Response quality evaluation
+- User feedback collection
+
+to provide reliable and context-aware healthcare consultation services.
+
+The platform also records interaction history and evaluation results for future system improvement and research analysis.
 
 ## Features
 
@@ -52,37 +90,6 @@ The platform integrates Large Language Models (LLMs), Retrieval-Augmented Genera
 - Relevance Evaluation
 - Toxicity Evaluation
 - Human Feedback Collection
-
-## Architecture
-
-```text
-User Query
-    │
-    ▼
-Flask Web Interface
-    │
-    ▼
-Retriever
-    │
-    ▼
-Chroma Vector Database
-    │
-    ▼
-Relevant Documents
-    │
-    ▼
-OpenAI GPT
-    │
-    ▼
-Response Evaluation
-    │
-    ├── Relevance
-    ├── Toxicity
-    └── User Feedback
-    │
-    ▼
-QA Record Database
-```
 
 ## Screenshots
 
