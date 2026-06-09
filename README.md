@@ -88,19 +88,19 @@ QA Record Database
 
 ### Home Page
 
-![Home](images/home.png)
+![Home](ACP-AI-Consultation-System/images/home.png)
 
 ### AI Consultation
 
-![QA](images/qa_demo.png)
+![QA](ACP-AI-Consultation-System/images/qa_demo.png)
 
 ### Database Search
 
-![Database](images/database_demo.png)
+![Database](ACP-AI-Consultation-System/images/database_demo.png)
 
 ### Course Learning Module
 
-![Video](images/video_demo.png)
+![Video](ACP-AI-Consultation-System/images/video_demo.png)
 
 ## My Contributions
 
