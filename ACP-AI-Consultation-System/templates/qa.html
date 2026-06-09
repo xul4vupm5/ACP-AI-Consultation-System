@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>課程問答系統</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f0f4f8;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+            text-align: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 350px;
+            margin: 20px;
+            padding: 25px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input[type=text],
+        input[type=submit],
+        a.button {
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: calc(100% - 30px);
+            /* Correct width with padding */
+            box-sizing: border-box;
+        }
+
+        input[type=submit],
+        a.button {
+            background-color: #5c6bc0;
+            color: white;
+            border: none;
+            cursor: pointer;
+            text-transform: none;
+            /* Avoid uppercase to make it feel more approachable */
+        }
+
+        input[type=submit]:hover,
+        a.button:hover {
+            background-color: #3f51b5;
+        }
+
+        .response {
+            background-color: #e7f5ff;
+            border-left: 5px solid #2196F3;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .response p {
+            margin: 0;
+        }
+
+        a.button {
+            text-decoration: none;
+            /* Remove underline from links */
+            text-align: center;
+            display: block;
+        }
+
+        .index-button {
+            background-color: #4CAF50;
+        }
+
+        .course-video-button {
+            background-color: #d385eb;
+        }
+
+        .view-data-button {
+            background-color: #4CAF50;
+        }
+
+        .index-button:hover {
+            background-color: #388E3C;
+        }
+
+        .course-video-button:hover {
+            background-color: #b74ccf;
+        }
+
+        .view-data-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>課程問答系統</h1>
+        <form action="/qa" method="POST">
+            <input type="text" name="question" placeholder="輸入你的問題" required />
+            <input type="text" name="category" placeholder="問題類別" required />
+            <input type="submit" value="詢問" />
+        </form>
+        <div class="response">
+            <p>回應：{{ response }}</p>
+        </div>
+        <a href="/view-data" class="view-data-button button">查看資料庫資料</a>
+        <a href="/course-video" class="course-video-button button">課程影音</a>
+        <a href="/" class="index-button button">返回主頁</a>
+    </div>
+</body>
+
+</html>

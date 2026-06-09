@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>課程影音</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            /* 16:9 aspect ratio */
+            height: 0;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .description {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+            /* Added margin for spacing */
+        }
+
+        .index-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        /* Pagination button styling */
+        #pagination button {
+            padding: 10px 20px;
+            margin-right: 5px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #pagination button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 id="course-title">課程標題</h1>
+        <a href="/" class="index-button">返回主頁</a>
+
+        <div id="video-wrapper" class="video-wrapper">
+            <!-- Initial video iframe will be injected here -->
+        </div>
+        <div id="description" class="description">
+            <!-- Initial description will be injected here -->
+        </div>
+        <div id="pagination">
+            <!-- Pagination buttons -->
+            <button onclick="loadPage(1)">1</button>
+            <button onclick="loadPage(2)">2</button>
+            <button onclick="loadPage(3)">3</button>
+            <!-- Add as many buttons as you have pages -->
+        </div>
+    </div>
+
+    <script>
+        // Placeholder content for the pages
+        const pages = [
+            {
+                title: "什麼是安寧照護",
+                url: "https://www.youtube.com/embed/utc_yLx4hoE",
+                description: "「接受安寧不是等於放棄您，多了安寧團隊的照護，希望您可以得到更好的生活品質哦!」本影片將帶您瞭解何謂安寧緩和療護、收案條件及優點和服務項目及範圍、申請方式。"
+            },
+            {
+                title: "預立醫療照護諮商",
+                url: "https://www.youtube.com/embed/n5insG3bjbY",
+                description: "「想要在還沒生病的時候，就好好思考生病時會遇到的問題，以免將來讓家人做決定，造成家人的壓力及困擾。」經由預立醫療照護諮商，讓您們瞭解在特定臨床條件、意識昏迷或無法清楚表達意願時，您可以決定要接受或拒絕哪些維持生命治療與人工營養及流體餵養。"
+            },
+            {
+                title: "病人自主權立法",
+                url: "https://www.youtube.com/embed/2Eh79wr7aSw",
+                description: "以故事闡述一家庭中不幸陷入昏迷的爸爸，醫師向家屬說明可以依照「病人自主權利法」進行後續處理，讓病人享有其該有的生命自主權力。並透過兒子、姑姑與醫師間的對話瞭解病主法的內容與執行過程，藉由問答、醫師將會補充更詳細資訊的對話形式闡述病主法重點事項。"
+            },
+            // ... add more pages as necessary
+        ];
+
+        function loadPage(pageNumber) {
+            const page = pages[pageNumber - 1]; // JavaScript arrays are zero-indexed
+            document.getElementById('course-title').textContent = page.title;
+            document.getElementById('video-wrapper').innerHTML = `<iframe width="560" height="315" src="${page.url}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
+            document.getElementById('description').textContent = page.description;
+        }
+
+        // Load the first page by default
+        loadPage(1);
+    </script>
+</body>
+
+</html>

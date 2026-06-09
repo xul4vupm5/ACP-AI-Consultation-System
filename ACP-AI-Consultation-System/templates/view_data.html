@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <title>查看數據</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .search-form {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .search-form input[type="text"] {
+            padding: 10px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 50%;
+            max-width: 300px;
+        }
+
+        .search-form input[type="submit"] {
+            padding: 10px 20px;
+            border: none;
+            background-color: #2196F3;
+            color: white;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .search-form input[type="submit"]:hover {
+            background-color: #1976D2;
+        }
+
+        .index-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .index-button:hover {
+            background-color: #388E3C;
+        }
+
+        .question,
+        .answer {
+            margin: 10px 0;
+            padding: 15px;
+            background-color: #f2f2f2;
+            border-left: 5px solid #607D8B;
+            border-radius: 5px;
+        }
+
+        .question {
+            background-color: #e7f5ff;
+            border-color: #2196F3;
+        }
+
+        .question p,
+        .answer p {
+            margin: 0;
+            padding: 5px 0;
+        }
+
+        .question-title,
+        .answer-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2 class="title">問答資料庫</h2>
+        <a href="/" class="index-button">返回主頁</a>
+
+        <div class="search-form">
+            <form action="/view-data" method="get">
+                <input type="text" name="search" placeholder="搜尋問題..." required>
+                <input type="submit" value="搜尋">
+            </form>
+        </div>
+
+        {% for qna in qnas %}
+        <div class="question">
+            <p class="question-title">問題:</p>
+            <p id="question-{{ qna.id }}">{{ qna.question }}</p>
+            <button onclick="speakText('question-{{ qna.id }}')">撥放問題</button>
+        </div>
+        <div class="answer">
+            <p class="answer-title">回答:</p>
+            <p id="answer-{{ qna.id }}">{{ qna.answer }}</p>
+            <button onclick="speakText('answer-{{ qna.id }}')">撥放回答</button>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+
+<script>
+    function speakText(elementId, voiceIndex) {
+        var text = document.getElementById(elementId).innerText;
+        var speech = new SpeechSynthesisUtterance(text);
+        var voices = window.speechSynthesis.getVoices();
+        speech.voice = voices[voiceIndex]; // 選擇特定的聲音
+        window.speechSynthesis.speak(speech);
+    }
+</script>
+
+</html>
