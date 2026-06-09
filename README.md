@@ -111,6 +111,13 @@ QA Record Database
 - Implemented response quality evaluation and feedback collection
 - Designed database schema and conversation record management
 
+## Technical Challenges
+
+- Managing hallucination risks in healthcare consultation scenarios
+- Improving retrieval relevance for ACP knowledge
+- Evaluating response quality using relevance and toxicity metrics
+- Designing a user-friendly consultation workflow for older adults
+
 ## Research Outcome
 
 ### Research Topic:
